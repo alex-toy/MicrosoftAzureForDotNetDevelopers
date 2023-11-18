@@ -1,4 +1,4 @@
-# Micrososft Azure For .Net Develoopers
+# Micrososft Azure For .Net Developers
 
 Microsoft Azure is the premiere cloud platform from Microsoft. It is an excellent space for hosting .NET applications and the modern .NET developer must be comfortable navigating the different services and features and using the cloud hosting platform to produce top-notch enterprise applications. In this project, we will get familiar with Microsoft Azure, it's interface, and various services. We will provision and then use Microsoft Azure resources and services and have an appreciation for how everything connects and can contribute to your stable and modern application being developed.
 
@@ -21,5 +21,19 @@ Microsoft Azure is the premiere cloud platform from Microsoft. It is an excellen
 
 ### Azure App Service
 
-- connection by access keys
-<img src="/pictures/access_keys.png" title="access keys"  width="900">
+- create resources
+```
+az group create --name alexeirg --location francecentral
+az webapp up -g alexeirg -p alexeiplan -n AlexeiAzureWebApp --verbose
+```
+
+- resources will be created on the azure portal
+<img src="/pictures/webapp.png" title="webapp"  width="900">
+
+- publish the app
+<img src="/pictures/webapp1.png" title="webapp"  width="900">
+
+### CI/CD
+
+- Deployment Center
+<img src="/pictures/webapp2.png" title="webapp"  width="900">
