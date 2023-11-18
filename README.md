@@ -15,3 +15,11 @@ Microsoft Azure is the premiere cloud platform from Microsoft. It is an excellen
 - Azure Service Bus and Queues
 - Build and Deploy Azure Functions
 - Integrate Advanced .NET Application Security with Azure AD and Azure AD B2C
+
+
+## Development
+
+### Azure App Service
+
+- connection by access keys
+<img src="/pictures/access_keys.png" title="access keys"  width="900">
