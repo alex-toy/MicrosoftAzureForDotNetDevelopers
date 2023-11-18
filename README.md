@@ -17,6 +17,9 @@ Microsoft Azure is the premiere cloud platform from Microsoft. It is an excellen
 - Integrate Advanced .NET Application Security with Azure AD and Azure AD B2C
 
 
+https://github.com/alex-toy/MicrosoftAzureForDotNetDevelopers/tree/main
+
+
 ## Development
 
 ### Azure App Service
