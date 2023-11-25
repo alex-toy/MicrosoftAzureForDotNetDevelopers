@@ -30,6 +30,11 @@ az group create --name alexeirg --location francecentral
 az webapp up -g alexeirg -p alexeiplan -n AlexeiAzureWebApp --verbose
 ```
 
+- ASP.NET Core project set up
+```
+dotnet new webapp -o MyAzureWebApp
+```
+
 - resources will be created on the azure portal
 <img src="/pictures/webapp.png" title="webapp"  width="900">
 
@@ -40,3 +45,6 @@ az webapp up -g alexeirg -p alexeiplan -n AlexeiAzureWebApp --verbose
 
 - Deployment Center
 <img src="/pictures/webapp2.png" title="webapp"  width="900">
+
+- bring modifications to the app and push
+<img src="/pictures/webapp3.png" title="webapp"  width="900">
