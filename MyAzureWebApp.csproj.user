@@ -2,6 +2,6 @@
 <Project ToolsVersion="Current" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
     <ActiveDebugProfile>https</ActiveDebugProfile>
-    <NameOfLastUsedPublishProfile>C:\source\cSharpAzure\MicrosoftAzureForDotNetDevelopers\Properties\PublishProfiles\AlexeiAzureWebApp - Web Deploy.pubxml</NameOfLastUsedPublishProfile>
+    <NameOfLastUsedPublishProfile>C:\source\cSharpAzure\MicrosoftAzureForDotNetDevelopers\Properties\PublishProfiles\alexeiwa - Web Deploy.pubxml</NameOfLastUsedPublishProfile>
   </PropertyGroup>
 </Project>
