@@ -48,3 +48,5 @@ dotnet new webapp -o MyAzureWebApp
 
 - bring modifications to the app and push
 <img src="/pictures/webapp3.png" title="webapp"  width="900">
+
+### Azure SQL
