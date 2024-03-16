@@ -39,6 +39,9 @@ dotnet new webapp -o MyAzureWebApp
 - publish the app
 <img src="/pictures/webapp1.png" title="webapp"  width="900">
 
+- monitoring
+<img src="/pictures/webapp11.png" title="webapp"  width="900">
+
 ### CI/CD
 
 - Deployment Center
@@ -46,5 +49,13 @@ dotnet new webapp -o MyAzureWebApp
 
 - bring modifications to the app and push
 <img src="/pictures/webapp3.png" title="webapp"  width="900">
+
+### Application Insight
+
+- right-click on the solution and choose **Configure Application Insight**
+
+- choose Azure
+<img src="/pictures/insight.png" title="application insights"  width="900">
+<img src="/pictures/insight1.png" title="application insights"  width="900">
 
 ### Azure SQL
