@@ -61,4 +61,9 @@ dotnet new webapp -o MyAzureWebApp
 - environment variables
 <img src="/pictures/environment_variables.png" title="environment variables"  width="900">
 
+### Auto Scaling
+
+- upgrade to **Standard S1**
+<img src="/pictures/auto_scaling.png" title="auto scaling"  width="900">
+
 ### Azure SQL
