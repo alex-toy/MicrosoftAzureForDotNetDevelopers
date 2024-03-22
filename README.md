@@ -50,6 +50,9 @@ dotnet new webapp -o MyAzureWebApp
 - bring modifications to the app and push
 <img src="/pictures/webapp3.png" title="webapp"  width="900">
 
+- see the deploy on **Github Actions**
+<img src="/pictures/actions.png" title="github actions"  width="900">
+
 ### Application Insight
 
 - right-click on the solution and choose **Configure Application Insight**
