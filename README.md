@@ -60,6 +60,8 @@ dotnet new webapp -o MyAzureWebApp
 - choose Azure
 <img src="/pictures/insight.png" title="application insights"  width="900">
 <img src="/pictures/insight1.png" title="application insights"  width="900">
+<img src="/pictures/insight2.png" title="application insights"  width="900">
+<img src="/pictures/insight3.png" title="application insights"  width="900">
 
 - environment variables
 <img src="/pictures/environment_variables.png" title="environment variables"  width="900">
