@@ -18,9 +18,7 @@ Microsoft Azure is the premiere cloud platform from Microsoft. It is an excellen
 
 
 
-## Development
-
-### Azure App Service
+## Azure App Service
 
 - create resources
 ```
@@ -42,7 +40,9 @@ dotnet new webapp -o MyAzureWebApp
 - monitoring
 <img src="/pictures/webapp11.png" title="webapp"  width="900">
 
-### CI/CD
+
+
+## CI/CD
 
 - Deployment Center
 <img src="/pictures/webapp2.png" title="webapp"  width="900">
@@ -53,7 +53,9 @@ dotnet new webapp -o MyAzureWebApp
 - see the deploy on **Github Actions**
 <img src="/pictures/actions.png" title="github actions"  width="900">
 
-### Application Insight
+
+
+## Application Insight
 
 - right-click on the solution and choose **Configure Application Insight**
 
@@ -66,7 +68,9 @@ dotnet new webapp -o MyAzureWebApp
 - environment variables
 <img src="/pictures/environment_variables.png" title="environment variables"  width="900">
 
-### Auto Scaling
+
+
+## Auto Scaling
 
 - upgrade to **Standard S1**
 <img src="/pictures/auto_scaling.png" title="auto scaling"  width="900">
@@ -74,12 +78,23 @@ dotnet new webapp -o MyAzureWebApp
 - add a rule
 <img src="/pictures/auto_scaling2.png" title="auto scaling"  width="900">
 
-### Deployment Slots
+
+
+## Deployment Slots
+
+### By publish
 
 - add a staging slot
 <img src="/pictures/slot.png" title="deployment slots"  width="900">
 
-- plublish to that slot slot
+- publish to that slot
 <img src="/pictures/slot1.png" title="deployment slots"  width="900">
+
+### By GitHub Action
+
+- add the staging branch to the deployment center
+<img src="/pictures/slot2.png" title="deployment slots"  width="900">
+
+
 
 ### Azure SQL
