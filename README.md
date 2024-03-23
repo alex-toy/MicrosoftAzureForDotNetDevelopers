@@ -1,6 +1,6 @@
 # Micrososft Azure For .Net Developers
 
-Microsoft Azure is the premiere cloud platform from Microsoft. It is an excellent space for hosting .NET applications and the modern .NET developer must be comfortable navigating the different services and features and using the cloud hosting platform to produce top-notch enterprise applications. In this project, we will get familiar with Microsoft Azure, it's interface, and various services. We will provision and then use Microsoft Azure resources and services and have an appreciation for how everything connects and can contribute to your stable and modern application being developed.
+Microsoft Azure is the premiere cloud platform from Microsoft. It is an excellent space for hosting .NET applications and the modern .NET developer must be comfortable navigating the different services and features and using the cloud hosting platform to produce top-notch enterprise applications. In this project, we will get familiar with Microsoft Azure, its interface, and various services. We will provision and then use Microsoft Azure resources and services and have an appreciation for how everything connects and can contribute to your stable and modern application being developed.
 
 - Azure CLI and Azure PowerShell
 - Virtual Machines on Azure
@@ -70,5 +70,16 @@ dotnet new webapp -o MyAzureWebApp
 
 - upgrade to **Standard S1**
 <img src="/pictures/auto_scaling.png" title="auto scaling"  width="900">
+
+- add a rule
+<img src="/pictures/auto_scaling2.png" title="auto scaling"  width="900">
+
+### Deployment Slots
+
+- add a staging slot
+<img src="/pictures/slot.png" title="deployment slots"  width="900">
+
+- plublish to that slot slot
+<img src="/pictures/slot1.png" title="deployment slots"  width="900">
 
 ### Azure SQL
