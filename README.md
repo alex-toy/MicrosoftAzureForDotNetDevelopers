@@ -97,4 +97,45 @@ dotnet new webapp -o MyAzureWebApp
 
 
 
-### Azure SQL
+## Health Checks
+
+
+
+## Azure Service Bus
+
+### Queue
+
+- create a queue
+<img src="/pictures/queue.png" title="queue"  width="900">
+
+- get connection string
+<img src="/pictures/queue1.png" title="queue"  width="900">
+
+- see the messages sent on the console
+<img src="/pictures/queue2.png" title="queue"  width="900">
+<img src="/pictures/queue3.png" title="queue"  width="900">
+
+### Topic
+
+- create a topic
+<img src="/pictures/topic.png" title="topic"  width="900">
+
+- add 3 subscriptions to the topic
+<img src="/pictures/topic1.png" title="topic"  width="900">
+
+- send messages
+<img src="/pictures/topic2.png" title="topic"  width="900">
+
+- receive messages from sub1
+<img src="/pictures/topic3.png" title="topic"  width="900">
+
+
+
+## Azure Storage Account
+
+- install packages
+```
+Azure.Storage.Blobs
+Azure.Storage.Queues
+Azure.Data.Tables
+```
