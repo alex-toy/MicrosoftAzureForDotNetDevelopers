@@ -2,11 +2,12 @@
 using Azure;
 using StorageApp.Data;
 
-namespace StorageApp.Services;
+namespace StorageApp.Services.TableStorage;
 
 public class TableStorageService<T> : ITableStorageService<T> where T : Entity, ITableEntity
 {
-    private const string TableName = "Attendees";
+    public string TableName { get; set; } = string.Empty;
+
     private readonly IConfiguration _config;
 
     public TableStorageService(IConfiguration configuration)
@@ -16,34 +17,34 @@ public class TableStorageService<T> : ITableStorageService<T> where T : Entity, 
 
     public async Task<T> Get(string partitionKey, string id)
     {
-        var tableClient = await GetTableClient();
+        TableClient tableClient = await GetTableClient();
         return await tableClient.GetEntityAsync<T>(partitionKey, id);
     }
 
     public async Task<List<T>> GetAll()
     {
-        var tableClient = await GetTableClient();
+        TableClient tableClient = await GetTableClient();
         Pageable<T> entities = tableClient.Query<T>();
         return entities.ToList();
     }
 
     public async Task Upsert(T entity)
     {
-        var tableClient = await GetTableClient();
+        TableClient tableClient = await GetTableClient();
         await tableClient.UpsertEntityAsync(entity);
     }
 
     public async Task Delete(string partitionKey, string id)
     {
-        var tableClient = await GetTableClient();
+        TableClient tableClient = await GetTableClient();
         await tableClient.DeleteEntityAsync(partitionKey, id);
     }
 
     private async Task<TableClient> GetTableClient()
     {
-        var connectionString = _config["StorageConnectionStrings"];
-        var serviceClient = new TableServiceClient(connectionString);
-        var tableClient = serviceClient.GetTableClient(TableName);
+        string? connectionString = _config["StorageConnectionStrings"];
+        TableServiceClient serviceClient = new(connectionString);
+        TableClient tableClient = serviceClient.GetTableClient(TableName);
         await tableClient.CreateIfNotExistsAsync();
         return tableClient;
     }

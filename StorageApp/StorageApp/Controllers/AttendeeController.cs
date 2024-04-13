@@ -1,30 +1,28 @@
-﻿using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using StorageApp.Data;
-using StorageApp.Services;
+using StorageApp.Services.TableStorage;
 
 namespace StorageApp.Controllers
 {
     public class AttendeeController : Controller
     {
-        private readonly IAttendeeStorageService _attendeeStorageService;
         private readonly ITableStorageService<Attendee> _tableStorageService;
 
-        public AttendeeController(IAttendeeStorageService attendeeStorageService, ITableStorageService<Attendee> tableStorageService)
+        public AttendeeController(ITableStorageService<Attendee> tableStorageService)
         {
-            _attendeeStorageService = attendeeStorageService;
             _tableStorageService = tableStorageService;
+            _tableStorageService.TableName = "Attendees";
         }
 
         public async Task<ActionResult> Index()
         {
-            var data = await _attendeeStorageService.GetAttendees();
+            List<Attendee> data = await _tableStorageService.GetAll();
             return View(data);
         }
 
-        public async Task<ActionResult> Details(string id, string industry)
+        public async Task<ActionResult> Details(string industry, string id)
         {
-            var data = await _attendeeStorageService.GetAttendee(industry, id);
+            Attendee data = await _tableStorageService.Get(industry, id);
             return View(data);
         }
 
@@ -42,7 +40,7 @@ namespace StorageApp.Controllers
                 attendee.PartitionKey = attendee.Industry;
                 attendee.RowKey = Guid.NewGuid().ToString();
 
-                await _attendeeStorageService.UpsertAttendee(attendee);
+                await _tableStorageService.Upsert(attendee);
 
                 return RedirectToAction(nameof(Index));
             }
@@ -54,7 +52,7 @@ namespace StorageApp.Controllers
         
         public async Task<ActionResult> Edit(string id, string industry)
         {
-            var data = await _attendeeStorageService.GetAttendee(industry, id);
+            Attendee data = await _tableStorageService.Get(industry, id);
             return View(data);
         }
         
@@ -66,7 +64,7 @@ namespace StorageApp.Controllers
             {
                 attendee.PartitionKey = attendee.Industry;
 
-                await _attendeeStorageService.UpsertAttendee(attendee);
+                await _tableStorageService.Upsert(attendee);
 
                 return RedirectToAction(nameof(Index));
             }
@@ -76,19 +74,12 @@ namespace StorageApp.Controllers
             }
         }
 
-        // GET: AttendeeController/Delete/5
-        public ActionResult Delete(int id)
-        {
-            return View();
-        }
-
-        // POST: AttendeeController/Delete/5
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Delete(int id, IFormCollection collection)
+        public async Task<ActionResult> Delete(string id, string industry)
         {
             try
             {
+                await _tableStorageService.Delete(industry, id);
+
                 return RedirectToAction(nameof(Index));
             }
             catch

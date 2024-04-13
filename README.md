@@ -139,3 +139,27 @@ Azure.Storage.Blobs
 Azure.Storage.Queues
 Azure.Data.Tables
 ```
+
+- in *Configuration*, allow *Blob anonymous access*
+<img src="/pictures/storage.png" title="storage account"  width="900">
+
+- add container *data*
+<img src="/pictures/storage1.png" title="storage account"  width="900">
+
+- add directory *attendees*
+<img src="/pictures/storage2.png" title="storage account"  width="900">
+
+- add queue *myqueue*
+<img src="/pictures/storage3.png" title="storage account"  width="900">
+
+- add table *Attendees*
+<img src="/pictures/storage4.png" title="storage account"  width="900">
+
+- add keys
+<img src="/pictures/storage5.png" title="storage account"  width="900">
+
+- grab connection strings
+<img src="/pictures/storage6.png" title="storage account"  width="900">
+
+- create new item
+<img src="/pictures/storage7.png" title="storage account"  width="900">
