@@ -7,22 +7,24 @@ namespace StorageApp.Controllers
 {
     public class AttendeeController : Controller
     {
-        private readonly ITableStorageService _tableStorageService;
+        private readonly IAttendeeStorageService _attendeeStorageService;
+        private readonly ITableStorageService<Attendee> _tableStorageService;
 
-        public AttendeeController(ITableStorageService tableStorageService)
+        public AttendeeController(IAttendeeStorageService attendeeStorageService, ITableStorageService<Attendee> tableStorageService)
         {
+            _attendeeStorageService = attendeeStorageService;
             _tableStorageService = tableStorageService;
         }
 
         public async Task<ActionResult> Index()
         {
-            var data = await _tableStorageService.GetAttendees();
+            var data = await _attendeeStorageService.GetAttendees();
             return View(data);
         }
 
         public async Task<ActionResult> Details(string id, string industry)
         {
-            var data = await _tableStorageService.GetAttendee(industry, id);
+            var data = await _attendeeStorageService.GetAttendee(industry, id);
             return View(data);
         }
 
@@ -40,7 +42,7 @@ namespace StorageApp.Controllers
                 attendee.PartitionKey = attendee.Industry;
                 attendee.RowKey = Guid.NewGuid().ToString();
 
-                await _tableStorageService.UpsertAttendee(attendee);
+                await _attendeeStorageService.UpsertAttendee(attendee);
 
                 return RedirectToAction(nameof(Index));
             }
@@ -52,7 +54,7 @@ namespace StorageApp.Controllers
         
         public async Task<ActionResult> Edit(string id, string industry)
         {
-            var data = await _tableStorageService.GetAttendee(industry, id);
+            var data = await _attendeeStorageService.GetAttendee(industry, id);
             return View(data);
         }
         
@@ -64,7 +66,7 @@ namespace StorageApp.Controllers
             {
                 attendee.PartitionKey = attendee.Industry;
 
-                await _tableStorageService.UpsertAttendee(attendee);
+                await _attendeeStorageService.UpsertAttendee(attendee);
 
                 return RedirectToAction(nameof(Index));
             }

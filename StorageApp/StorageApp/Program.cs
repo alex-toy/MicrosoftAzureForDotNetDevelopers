@@ -3,7 +3,7 @@ using StorageApp.Services;
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
-builder.Services.AddScoped<ITableStorageService, TableStorageService>();
+builder.Services.AddScoped<IAttendeeStorageService, AttendeeStorageService>();
 builder.Services.AddControllersWithViews();
 
 var app = builder.Build();

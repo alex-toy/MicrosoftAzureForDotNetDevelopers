@@ -3,7 +3,7 @@ using Azure.Data.Tables;
 
 namespace StorageApp.Data;
 
-public class TableEntity : ITableEntity
+public class Entity : ITableEntity
 {
     public string PartitionKey { get; set; }
     public string RowKey { get; set; }
