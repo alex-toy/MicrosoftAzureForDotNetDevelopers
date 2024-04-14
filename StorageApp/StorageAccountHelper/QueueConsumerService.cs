@@ -6,34 +6,20 @@ namespace StorageAccountHelper;
 
 public class QueueConsumerService
 {
-    public string QueueName { get; set; } = string.Empty;
+    public MessageHandler? HandleMessage { get; set; }
+
+    public delegate void MessageHandler(string message);
 
     private readonly QueueClient? _queue;
 
-    public QueueConsumerService(string connectionString)
+    public QueueConsumerService(string connectionString, string queueName)
     {
-        _queue = new(connectionString, QueueName);
-    }
-
-    public async Task<List<string>> Test()
-    {
-        List<string> messages = new List<string>();
-
-        if (_queue is null) return messages;
-
-        QueueProperties properties = await _queue.GetPropertiesAsync();
-        while (properties.ApproximateMessagesCount > 0)
-        {
-            string message = await RetrieveNextMessage();
-            messages.Add(message);
-        }
-
-        return messages;
+        _queue = new(connectionString, queueName);
     }
 
     public async Task<List<string>> RetrieveMessages()
     {
-        List<string> messages = new List<string>();
+        List<string> messages = new();
 
         if (_queue is null) return messages;
 
@@ -42,7 +28,8 @@ public class QueueConsumerService
             QueueProperties properties = await _queue.GetPropertiesAsync();
             while (properties.ApproximateMessagesCount > 0)
             {
-                string message = await RetrieveNextMessage();
+                string message = await RetrieveNextMessageAsync();
+                if (HandleMessage is not null) HandleMessage(message);
                 messages.Add(message);
             }
         }
@@ -50,7 +37,15 @@ public class QueueConsumerService
         return messages;
     }
 
-    private async Task<string> RetrieveNextMessage()
+    public async Task<BinaryData> PeekMessagesAsync()
+    {
+        if (_queue is null) return new BinaryData(new byte());
+        Azure.Response<PeekedMessage[]> message = await _queue.PeekMessagesAsync();
+        if (message.Value.Length > 0) return message.Value[0].Body;
+        return new BinaryData(new byte());
+    }
+
+    private async Task<string> RetrieveNextMessageAsync()
     {
         QueueMessage[] messageBase64 = await _queue!.ReceiveMessagesAsync(1);
         byte[] data = Convert.FromBase64String(messageBase64[0].Body.ToString());

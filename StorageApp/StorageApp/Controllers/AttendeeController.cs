@@ -8,7 +8,7 @@ public class AttendeeController : Controller
 {
     private readonly TableStorageService<Attendee> _tableStorageService;
     private readonly BlobStorageService _blobStorageService;
-    private readonly QueueService _queueService;
+    private readonly QueueProducerService _queueService;
     private readonly IConfiguration _config;
 
     public AttendeeController(IConfiguration config)
@@ -18,7 +18,7 @@ public class AttendeeController : Controller
 
         _tableStorageService = new TableStorageService<Attendee>(connectionString) { TableName = "Attendees" };
         _blobStorageService = new BlobStorageService(connectionString) { ContainerName = "data" };
-        _queueService = new QueueService(connectionString) { QueueName = "attendees" };
+        _queueService = new QueueProducerService(connectionString) { QueueName = "attendees" };
     }
 
     public async Task<ActionResult> Index()

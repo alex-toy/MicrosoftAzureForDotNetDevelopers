@@ -3,13 +3,13 @@ using Newtonsoft.Json;
 
 namespace StorageAccountHelper;
 
-public class QueueService 
+public class QueueProducerService 
 {
     public string QueueName { get; set; } = string.Empty;
 
     private readonly string? _connectionString;
 
-    public QueueService(string conecctionString)
+    public QueueProducerService(string conecctionString)
     {
         _connectionString = conecctionString;
     }

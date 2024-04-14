@@ -2,17 +2,12 @@
 
 Console.WriteLine("Queue consumer");
 
+static void HandleMessage(string message)
+{
+    Console.WriteLine(message);
+}
 
 string? connectionString = Environment.GetEnvironmentVariable("AZURE_STORAGE_CONNECTION_STRING");
-Console.WriteLine(connectionString);
-QueueConsumerService queueConsumerService = new(connectionString) { QueueName = "attendees" };
+QueueConsumerService queueConsumerService = new(connectionString, "attendees") { HandleMessage = HandleMessage };
 
-//List<string> messages = await queueConsumerService.RetrieveMessages();
-List<string> messages = await queueConsumerService.Test();
-
-HandleMessage(messages);
-
-static void HandleMessage(List<string> messages)
-{
-    messages.ForEach(message => Console.WriteLine(message));
-}
+List<string> messages = await queueConsumerService.RetrieveMessages();

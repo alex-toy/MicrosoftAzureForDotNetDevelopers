@@ -163,3 +163,7 @@ Azure.Data.Tables
 
 - create new item
 <img src="/pictures/storage7.png" title="storage account"  width="900">
+
+
+
+## Azure Functions
