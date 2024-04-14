@@ -1,18 +1,18 @@
-﻿using Azure.Data.Tables;
-using Azure;
+﻿using Azure;
+using Azure.Data.Tables;
 using StorageApp.Data;
 
-namespace StorageApp.Services.TableStorage;
+namespace StorageAccountHelper;
 
-public class TableStorageService<T> : ITableStorageService<T> where T : Entity, ITableEntity
+public class TableStorageService<T>  where T : Entity, ITableEntity
 {
     public string TableName { get; set; } = string.Empty;
 
-    private readonly IConfiguration _config;
+    private readonly string _connectionString;
 
-    public TableStorageService(IConfiguration configuration)
+    public TableStorageService(string connectionString)
     {
-        _config = configuration;
+        _connectionString = connectionString;
     }
 
     public async Task<T> Get(string partitionKey, string id)
@@ -42,8 +42,7 @@ public class TableStorageService<T> : ITableStorageService<T> where T : Entity, 
 
     private async Task<TableClient> GetTableClient()
     {
-        string? connectionString = _config["StorageConnectionString"];
-        TableServiceClient serviceClient = new(connectionString);
+        TableServiceClient serviceClient = new(_connectionString);
         TableClient tableClient = serviceClient.GetTableClient(TableName);
         await tableClient.CreateIfNotExistsAsync();
         return tableClient;

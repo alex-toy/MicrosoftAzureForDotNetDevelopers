@@ -1,18 +1,19 @@
 ﻿using Azure.Storage.Blobs;
 using Azure.Storage.Blobs.Models;
 using Azure.Storage.Sas;
+using Microsoft.AspNetCore.Http;
 
-namespace StorageApp.Services.BlobStorage;
+namespace StorageAccountHelper;
 
-public class BlobStorageService : IBlobStorageService
+public class BlobStorageService
 {
     public string ContainerName { get; set; } = string.Empty;
 
-    private readonly IConfiguration _config;
+    private readonly string _connectionString;
 
-    public BlobStorageService(IConfiguration config)
+    public BlobStorageService(string connectionString)
     {
-        _config = config;
+        _connectionString = connectionString;
     }
 
     public async Task<string> UploadBlob(IFormFile formFile, string imageName)
@@ -23,7 +24,7 @@ public class BlobStorageService : IBlobStorageService
         formFile.CopyTo(memoryStream);
         memoryStream.Position = 0;
         BlobClient blob = container.GetBlobClient(imageName);
-        await blob.UploadAsync(memoryStream, overwrite:true);
+        await blob.UploadAsync(memoryStream, overwrite: true);
         return blobName;
     }
 
@@ -55,8 +56,7 @@ public class BlobStorageService : IBlobStorageService
     {
         try
         {
-            string? connectionString = _config["StorageConnectionString"];
-            BlobContainerClient container = new(connectionString, ContainerName);
+            BlobContainerClient container = new(_connectionString, ContainerName);
             await container.CreateIfNotExistsAsync();
             return container;
         }

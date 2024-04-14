@@ -3,7 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.9.34701.34
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StorageApp", "StorageApp\StorageApp.csproj", "{2626B767-CD5E-441C-999D-ACA7CE7B17E1}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "StorageApp", "StorageApp\StorageApp.csproj", "{2626B767-CD5E-441C-999D-ACA7CE7B17E1}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Queue.Consumer", "Queue.Consumer\Queue.Consumer.csproj", "{19F1129B-8A71-4054-B633-B1FA0894221B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StorageAccountHelper", "StorageAccountHelper\StorageAccountHelper.csproj", "{E07FBA03-97E0-41E5-B98F-21C7A9F2A3F6}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +19,14 @@ Global
 		{2626B767-CD5E-441C-999D-ACA7CE7B17E1}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2626B767-CD5E-441C-999D-ACA7CE7B17E1}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2626B767-CD5E-441C-999D-ACA7CE7B17E1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{19F1129B-8A71-4054-B633-B1FA0894221B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{19F1129B-8A71-4054-B633-B1FA0894221B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{19F1129B-8A71-4054-B633-B1FA0894221B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{19F1129B-8A71-4054-B633-B1FA0894221B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E07FBA03-97E0-41E5-B98F-21C7A9F2A3F6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E07FBA03-97E0-41E5-B98F-21C7A9F2A3F6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E07FBA03-97E0-41E5-B98F-21C7A9F2A3F6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E07FBA03-97E0-41E5-B98F-21C7A9F2A3F6}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
