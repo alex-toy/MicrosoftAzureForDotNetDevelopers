@@ -1,3 +1,6 @@
+using Azure.Data.Tables;
+using Azure.Storage.Queues;
+using Microsoft.Extensions.Azure;
 using StorageApp.Data;
 
 var builder = WebApplication.CreateBuilder(args);

@@ -26,7 +26,7 @@ public class QueueConsumerService
         if (await _queue.ExistsAsync())
         {
             QueueProperties properties = await _queue.GetPropertiesAsync();
-            while (properties.ApproximateMessagesCount > 0)
+            for(int i = 0; i < properties.ApproximateMessagesCount; i++)
             {
                 string message = await RetrieveNextMessageAsync();
                 if (HandleMessage is not null) HandleMessage(message);
