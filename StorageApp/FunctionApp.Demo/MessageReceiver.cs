@@ -4,7 +4,7 @@ using Microsoft.Azure.Functions.Worker;
 using Microsoft.Azure.WebJobs;
 using Microsoft.Extensions.Logging;
 
-namespace HttpTriggerReceiver
+namespace FunctionApp.Demo
 {
     public class MessageReceiver
     {
@@ -12,7 +12,7 @@ namespace HttpTriggerReceiver
 
         public MessageReceiver(ILoggerFactory loggerFactory)
         {
-            _logger = loggerFactory.CreateLogger<MessageReceiver>();
+            _logger = loggerFactory.CreateLogger<MessageReceiver>();    
         }
 
         [FunctionName("MessageReceiver")]
