@@ -167,3 +167,6 @@ Azure.Data.Tables
 
 
 ## Azure Functions
+
+- create Azure Function
+<img src="/pictures/az_function.png" title="azure function"  width="900">
