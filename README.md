@@ -168,5 +168,11 @@ Azure.Data.Tables
 
 ## Azure Functions
 
-- create Azure Function
+- create HTTP trigger
 <img src="/pictures/az_function.png" title="azure function"  width="900">
+
+- add output to storage account
+<img src="/pictures/az_function2.png" title="azure function"  width="900">
+
+- create Timer trigger
+<img src="/pictures/az_function3.png" title="azure function"  width="900">
